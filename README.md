@@ -1,4 +1,6 @@
 # tradingview-scraper
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcondrove10%2Ftradingview-scraper.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fcondrove10%2Ftradingview-scraper?ref=badge_shield)
+
 Get any market data in real time from the TradingView socket :) Ready to use in your Golang projects!
 
 
@@ -86,3 +88,7 @@ If you found this repository useful for your needs, please consider sending a do
 - Monero: 88g1yVAA6ot7maGyq4Vtz6RfdS3Dwm5VMMHqexH9FsNaR7yU3hi8GT5Sxr3A7YUyoNY5sEhwHRBpSHg9rFUTtuqUJoAbSxk
 
 Or paypal: https://www.paypal.com/paypalme/mgonalonscamps
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcondrove10%2Ftradingview-scraper.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fcondrove10%2Ftradingview-scraper?ref=badge_large)
