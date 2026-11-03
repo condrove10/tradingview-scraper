@@ -2,35 +2,24 @@ package tradingview
 
 import (
 	"encoding/json"
-	"math/rand"
-	"time"
+	"math/rand/v2"
 )
 
-// GetRandomString ...
+// GetRandomString returns length random ASCII letters. It is safe for
+// concurrent use.
 func GetRandomString(length int) string {
-	var src = rand.NewSource(time.Now().UnixNano())
-	var characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	var letterIdxBits int = 6
-	var letterIdxMask int64 = 1<<letterIdxBits - 1
-	var letterIdxMax = 63 / letterIdxBits
-
-	requestID := make([]byte, length)
-	for i, cache, remain := length-1, src.Int63(), letterIdxMax; i >= 0; {
-		if remain == 0 {
-			cache, remain = src.Int63(), letterIdxMax
-		}
-		if idx := int(cache & letterIdxMask); idx < len(characters) {
-			requestID[i] = characters[idx]
-			i--
-		}
-		cache >>= letterIdxBits
-		remain--
+	const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	if length <= 0 {
+		return ""
 	}
-
-	return string(requestID)
+	b := make([]byte, length)
+	for i := range b {
+		b[i] = characters[rand.IntN(len(characters))]
+	}
+	return string(b)
 }
 
-// GetStringRepresentation ...
+// GetStringRepresentation returns data as JSON, or "" if it cannot be encoded.
 func GetStringRepresentation(data interface{}) string {
 	str, _ := json.Marshal(data)
 	return string(str)
